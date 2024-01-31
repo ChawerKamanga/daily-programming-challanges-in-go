@@ -1,0 +1,3 @@
+module sparsearrays
+
+go 1.21.6
