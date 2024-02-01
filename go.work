@@ -4,4 +4,5 @@ use (
 	./minmaxsums
 	./sparsearrays
 	./lonelyinteger
+	./flippingbits
 )
