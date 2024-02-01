@@ -6,4 +6,5 @@ use (
 	./lonelyinteger
 	./flippingbits
 	./diagonaldifference
+	./countingsortone
 )

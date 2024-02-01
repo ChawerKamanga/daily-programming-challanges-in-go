@@ -17,16 +17,12 @@ import (
  */
 
 func countingSort(arr []int32) []int32 {
-	// Initialize a new result array with 100 elements, all set to 0
 	result := make([]int32, 100)
 
-	// Loop through each element in the input array
 	for _, value := range arr {
-		// Increment the count of the element's value in the result array
 		result[value] += 1
 	}
 
-	// Return the result array which now contains the frequency of each number
 	return result
 }
 
