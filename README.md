@@ -8,7 +8,7 @@ This repository is a collection of solutions to various coding problems on Hacke
 
 ## Challenges
 
-Below is a list of challenges I've completed, organized by date and topic.
+Below is a list of challenges I've completed, organized by challange name.
 
 
 ## How to Use This Repository
