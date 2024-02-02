@@ -8,4 +8,5 @@ use (
 	./diagonaldifference
 	./countingsortone
 	./pangrams
+	./permutingtwoarrays
 )
