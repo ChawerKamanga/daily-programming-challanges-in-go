@@ -9,4 +9,5 @@ use (
 	./countingsortone
 	./pangrams
 	./permutingtwoarrays
+	./subarraydivision-one
 )
