@@ -10,39 +10,35 @@ import (
 )
 
 /*
- * Complete the 'findMedian' function below.
+ * Complete the 'birthday' function below.
  *
  * The function is expected to return an INTEGER.
- * The function accepts INTEGER_ARRAY arr as parameter.
+ * The function accepts following parameters:
+ *  1. INTEGER_ARRAY s
+ *  2. INTEGER d
+ *  3. INTEGER m
  */
 
-func findMedian(arr []int32) int32 {
-	// Write your code here
-	n := len(arr)
+func birthday(s []int32, d int32, m int32) int32 {
+	// Initialize a counter to 0
+	var counter int32 = 0
 
-	if n == 0 {
-		return 0
-	}
-
-	for i := 0; i < n-1; i++ {
-		for j := 0; j < n-i-1; j++ {
-			if arr[j] > arr[j+1] {
-				// Swap elements
-				arr[j], arr[j+1] = arr[j+1], arr[j]
-			}
+	// Loop through the array up to n - m + 1
+	for i := 0; i <= len(s)-int(m); i++ {
+		// Sum up m elements starting from the current index i
+		var sum int32 = 0
+		for j := i; j < i+int(m); j++ {
+			sum += s[j]
+		}
+		// If this sum is equal to d, increment the counter
+		if sum == d {
+			counter++
 		}
 	}
-
-	if n%2 == 1 {
-		return int32(arr[n/2])
-	}
-
-	mid1 := arr[(n/2)-1]
-	mid2 := arr[n/2]
-
-	return int32(mid1+mid2) / 2
-
+	// Return the counter after the loop finishes
+	return counter
 }
+
 func main() {
 	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
@@ -57,18 +53,28 @@ func main() {
 	checkError(err)
 	n := int32(nTemp)
 
-	arrTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
+	sTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
 
-	var arr []int32
+	var s []int32
 
 	for i := 0; i < int(n); i++ {
-		arrItemTemp, err := strconv.ParseInt(arrTemp[i], 10, 64)
+		sItemTemp, err := strconv.ParseInt(sTemp[i], 10, 64)
 		checkError(err)
-		arrItem := int32(arrItemTemp)
-		arr = append(arr, arrItem)
+		sItem := int32(sItemTemp)
+		s = append(s, sItem)
 	}
 
-	result := findMedian(arr)
+	firstMultipleInput := strings.Split(strings.TrimSpace(readLine(reader)), " ")
+
+	dTemp, err := strconv.ParseInt(firstMultipleInput[0], 10, 64)
+	checkError(err)
+	d := int32(dTemp)
+
+	mTemp, err := strconv.ParseInt(firstMultipleInput[1], 10, 64)
+	checkError(err)
+	m := int32(mTemp)
+
+	result := birthday(s, d, m)
 
 	fmt.Fprintf(writer, "%d\n", result)
 
