@@ -10,4 +10,6 @@ use (
 	./pangrams
 	./permutingtwoarrays
 	./subarraydivision-one
+	./findmedian
+	./flippingmatrix
 )
